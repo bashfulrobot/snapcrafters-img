@@ -1,0 +1,35 @@
+name: img
+base: core18
+version: "0.5.7"
+summary: Standalone, daemon-less, unprivileged container builder.
+description: |
+  Standalone, daemon-less, unprivileged Dockerfile and OCI compatible container image builder.
+
+  Build container images in Kubernetes without mounting in the docker socket or doing anything
+  to compromise the security of your cluster.
+
+  Currently this snap package only has access to the home folder.
+
+  - Full blog article: https://blog.jessfraz.com/post/building-container-images-securely-on-kubernetes/
+  - Snap package issues can be reported at https://github.com/bashfulrobot/snapcrafters-img/issues
+confinement: strict
+grade: stable
+architectures:
+  - build-on: amd64
+parts:
+  img:
+    plugin: nil
+    build-packages:
+      - wget
+    override-pull: |
+      wget https://github.com/genuinetools/img/releases/download/v$SNAPCRAFT_PROJECT_VERSION/$SNAPCRAFT_PROJECT_NAME-linux-$SNAP_ARCH
+    override-build: |
+      snapcraftctl build
+      install $SNAPCRAFT_PROJECT_NAME-linux-$SNAP_ARCH $SNAPCRAFT_PART_INSTALL/img
+
+apps:
+  img:
+    command: img
+    plugs:
+      - home
+      - network
