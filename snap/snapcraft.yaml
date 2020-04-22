@@ -1,12 +1,13 @@
 name: img
 base: core18
 version: "0.5.7"
-summary: Standalone, daemon-less, unprivileged container builder.
+summary: Unprivileged Dockerfile & OCI compatible container img builder.
 description: |
   Standalone, daemon-less, unprivileged Dockerfile and OCI compatible container image builder.
 
-  Build container images in Kubernetes without mounting in the docker socket or doing anything
-  to compromise the security of your cluster.
+  - img is more cache-efficient than Docker and can also execute multiple build stages concurrently, as it internally uses BuildKit's DAG solver.
+  - The commands/UX are the same as docker {build,tag,push,pull,login,save} so all you have to do is replace docker with img in your scripts, command line, and/or life."
+  - Build container images in Kubernetes without mounting in the docker socket or doing anything to compromise the security of your cluster.
 
   Currently this snap package only has access to the home folder.
 
