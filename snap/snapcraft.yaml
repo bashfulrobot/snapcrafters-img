@@ -22,6 +22,8 @@ parts:
     plugin: nil
     build-packages:
       - wget
+    stage-packages:
+      - uidmap
     override-pull: |
       wget https://github.com/genuinetools/img/releases/download/v$SNAPCRAFT_PROJECT_VERSION/$SNAPCRAFT_PROJECT_NAME-linux-$SNAP_ARCH
     override-build: |
