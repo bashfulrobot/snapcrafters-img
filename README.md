@@ -8,3 +8,5 @@ Build container images in Kubernetes without mounting in the docker socket or do
 
 - Currently this snap package only has access to the `home` folder.
 - Full blog article: https://blog.jessfraz.com/post/building-container-images-securely-on-kubernetes/
+
+[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/img)
